@@ -1,27 +1,21 @@
 #include <bits/stdc++.h>
-
 using namespace std;
+using vi = vector<int>;
+#define FORI(s,n) for(int i=s;i<n;i++)
+#define FORJ(s,n) for(int j=s;j<n;j++)
 
-int const N = 101;
-int n, a[N];
-
-int main() {
-  int mx = -1, t = 0;
-  scanf("%d", &n);
-  for(int i = 0; i < n; ++i)
-    scanf("%d", a + i), t += a[i], mx = max(mx, a[i]);
-
-  for(int i = mx; i < 10000; ++i) {
-    int cur = 0;
-    for(int j = 0; j < n; ++j) {
-      cur += i - a[j];
+int main()
+{
+    int n{},sum{},res{},mx{INT_MIN};
+    scanf("%d",&n);
+    vi a(n);
+    FORI(0,n) {scanf("%d",&a[i]),sum+=a[i];mx = max(mx,a[i]);}
+    FORI(mx,1e5+5)
+    {
+        FORJ(0,n) res+= i - a[j];
+        if(res>sum) return !printf("%d\n",i);
+        else
+        res = 0;
     }
-
-    if(cur > t) {
-      printf("%d\n", i);
-      return 0;
-    }
-  }
-
-  return 0;
+    return 0;
 }
