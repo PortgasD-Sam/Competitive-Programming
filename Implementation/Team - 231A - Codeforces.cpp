@@ -1,16 +1,20 @@
-#include <bits/stdc++.h>
+#include <iostream>
+
 using namespace std;
-int main()
-{
-    int n{},counter{},a{},b{},c{};
-    cin>>n;
-    string s;
-    for(int i=0;i<n;i++)
-    {
-        cin>>a>>b>>c;
-        if((a+b+c)>=2)
-        counter++;
-    }
-    cout<<counter<<endl;
-    return 0;
+
+int main() {
+	int n, c = 0;
+	cin >> n;
+
+	while(n--) {
+		int p, v, t;
+		cin >> p >> v >> t;
+
+		if((p == 1 && v == 1) || (v == 1 && t == 1) || (t == 1 && p == 1))
+			c++;
+	}
+
+	cout << c << endl;
+
+	return 0;
 }
